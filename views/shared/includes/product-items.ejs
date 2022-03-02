@@ -1,0 +1,15 @@
+<article id="product-item">
+    <img src="/<%= product[1].Filename  %>" alt="image">
+    <h2><%= product[1].Title  %> </h2>
+
+    <% if(locals.isAdmin){  %> 
+    <div id="two-buuton">
+        <a  class="btn btn-alt" href="/admin/products/<%= product[1]._id %>">View & Edit</a>
+        <form action="/admin/products/delete/<%= product[1]._id %>?_csrf=<%= locals.csrfToken %>" method="post">
+            <button class="btn btn-alt" >Delete</button>
+        </form>
+    </div>
+    <% } else {%>
+        <a  class="btn btn-alt" href="/products/<%= product[1]._id %>">View </a>
+        <% } %>  
+</article>

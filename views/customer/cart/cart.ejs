@@ -1,0 +1,33 @@
+<%- include('../../shared/includes/head',{pageTitle:"Cart"}) %> 
+<link rel="stylesheet" href="/style/auth.css">
+</head>
+<body>
+<%- include('../../shared/includes/header') %> 
+<main id="cart-item">
+    <h1>
+        All Items
+    </h1>
+    <% let price=0  %> 
+    <% if(!cart||cart.length===0) { %> 
+        <p>no item found in cart</p>
+        <% }else{ %> 
+    <div id="cart-items">
+
+        
+         <% for (const product of cart){ %> 
+            <li>
+                <% price+=(1*product.price)  %> 
+                <%- include('./product' ,{product:product}) %> 
+            </li>
+            <% } %> 
+            <form action="/order?_csrf=<%= locals.csrfToken%>" method="post">
+                <p>total Price  :<%= price  %></p>
+                <button type="submit" class="btn">Buy </button>
+            </form>
+            <% } %> 
+    </div>
+       
+      
+   
+</main>
+<%- include('../../shared/includes/footer') %> 

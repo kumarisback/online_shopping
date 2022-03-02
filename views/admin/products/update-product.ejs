@@ -1,0 +1,18 @@
+<%- include('../../shared/includes/head',{pageTitle:"Home"}) %> 
+<link rel="stylesheet" href="/style/auth.css">
+<link rel="stylesheet" href="/style/form.css">
+<script src="/script/preview" defer></script>
+</head>
+<body>
+<%- include('../../shared/includes/header') %> 
+<main>
+    <h1>
+        Update Product
+    </h1>
+    <%= typeof product._id.toString() %>
+    <%- include('includes/product-form',{submitPath:`/admin/products/${product._id}` ,imageReq:false}) %> 
+    
+
+    
+</main>
+<%- include('../../shared/includes/footer') %> 

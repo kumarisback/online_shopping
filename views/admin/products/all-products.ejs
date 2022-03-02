@@ -1,0 +1,28 @@
+<%- include('../../shared/includes/head',{pageTitle:"Home"}) %> 
+<link rel="stylesheet" href="/style/auth.css">
+</head>
+<body>
+<%- include('../../shared/includes/header') %> 
+<main>
+    <h1>
+        Product Administration
+    </h1>
+    <section>
+        <h2>
+            Manage Product
+        </h2>
+        <p><a href="/admin/product/new" class="btn">Add Product</a></p>
+    </section>
+    <section>
+        <ul>
+            <% for (const product of products){ %> 
+            <li>
+                <%- include('../../shared/includes/product-items' ,{product:product}) %> 
+            </li>
+            <% } %> 
+        </ul>
+    </section>
+
+    
+</main>
+<%- include('../../shared/includes/footer') %> 

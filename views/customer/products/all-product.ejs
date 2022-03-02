@@ -1,0 +1,18 @@
+<%- include('../../shared/includes/head',{pageTitle:"Home"}) %> 
+<link rel="stylesheet" href="/style/auth.css">
+</head>
+<body>
+<%- include('../../shared/includes/header') %> 
+<main>
+    <h1>
+        All products
+    </h1>
+
+    <% for (const product of products){ %> 
+        <li>
+            <%- include('../../shared/includes/product-items' ,{product:product}) %> 
+        </li>
+        <% } %> 
+    
+</main>
+<%- include('../../shared/includes/footer') %> 

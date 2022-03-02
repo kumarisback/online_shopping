@@ -1,0 +1,26 @@
+<%- include('../../shared/includes/head',{pageTitle:"Home"}) %> 
+<link rel="stylesheet" href="/style/auth.css">
+<link rel="stylesheet" href="/style/forms.css">
+</head>
+<body>
+<%- include('../../shared/includes/header') %> 
+<main id="product-details"> 
+    
+    <header>
+        <img src="/<%= product.Filename  %>" alt="">
+        <div id="product-info">
+            <h1><%= product.Title  %> </h1>
+            <p><%= product.Price  %></p>
+            
+            <form action="/cart?_csrf=<%= locals.csrfToken  %>" method="post" >
+                <input type="hidden" name="title" value="<%= product.Title  %>">
+                <input type="hidden" name="price" value="<%= product.Price %>">
+                <input type="hidden" name="id" value="<%= product._id  %>">
+                <button type="submit">add to cart</button>
+            </form>
+
+            </div>
+    </header>
+    <p id="desc"><%= product.Description  %></p>
+</main>
+<%- include('../../shared/includes/footer') %> 
