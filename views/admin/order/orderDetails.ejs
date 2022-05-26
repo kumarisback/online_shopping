@@ -1,0 +1,25 @@
+<%- include('../../shared/includes/head',{pageTitle:"Order"}) %> 
+<link rel="stylesheet" href="/style/auth.css">
+</head>
+<body>
+<%- include('../../shared/includes/header') %> 
+<main id="cart-item">
+    <h1>
+        All Orders
+    </h1>
+    <% if(!orders||orders.length===0) { %> 
+        <p>Not placed any Order</p>
+        <% }else{ %> 
+    <div id="cart-items">
+
+        
+         <% for (const product of order){ %> 
+            <li>
+                <%- include('./product' ,{product:product}) %> 
+            </li>
+            <% } %>
+            <% } %> 
+    </div>
+    
+</main>
+<%- include('../../shared/includes/footer') %> 

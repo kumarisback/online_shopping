@@ -1,3 +1,4 @@
+const orderModel = require("../models/order.model");
 const { insertProduct,findAll, findProduct, updateProduct, deleteProduct } = require("../models/product.operation");
 
 
@@ -78,11 +79,22 @@ async function deleteProducts(req,res){
     console.log(productDetails);
     res.redirect('/admin/product')
 }
+
+async function fetchOrders(req,res){
+    let orders=await orderModel.find().populate({path:'datas'});
+    console.log(orders);
+    // for(let i=0;i<orders.length;i++){
+
+    // }
+    console.log("-");
+    res.render('admin/order/orderDetails',{orders:orders});
+}
 module.exports={
     getProducts:getProducts,
     getNewProduct:getNewProduct,
     createNewProduct:createNewProduct,
     editProducts:editProducts,
     updateProducts:updateProducts,
-    deleteProducts:deleteProducts
+    deleteProducts:deleteProducts,
+    fetchOrders:fetchOrders
 }
